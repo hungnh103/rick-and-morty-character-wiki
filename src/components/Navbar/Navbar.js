@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink, Link } from 'react-router-dom';
 import '../../App.css';
 
@@ -43,7 +44,6 @@ const Navbar = () => {
               Episode
             </NavLink>
             <NavLink
-              activeClassName='active'
               className='nav-link'
               to='/location'
             >
