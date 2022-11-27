@@ -18,7 +18,11 @@ function App() {
   let [pageNumber, updatePageNumber] = useState(1);
   let [search, setSearch] = useState('');
 
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
+  let [status, updateStatus] = useState('');
+  let [gender, updateGender] = useState('');
+  let [species, updateSpecies] = useState('');
+
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
   useEffect(() => {
     (async function() {
       let data = await fetch(api).then((res) => res.json());
@@ -33,7 +37,14 @@ function App() {
 
       <div className="container">
         <div className="row">
-          Filter component will be placed here
+          <Filter
+            pageNumber={pageNumber}
+            status={status}
+            updateStatus={updateStatus}
+            updateGender={updateGender}
+            updateSpecies={updateSpecies}
+            updatePageNumber={updatePageNumber}
+          />
           <div className="col-lg-8 col-12">
             <div className="row">
               <Card results={results} />
